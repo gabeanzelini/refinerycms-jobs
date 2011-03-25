@@ -5,5 +5,4 @@ class Job < ActiveRecord::Base
 
   validates_presence_of :job_title, :description
   validates_uniqueness_of :job_title
-  has_many :job_applications, :class_name => "job_application"
 end
