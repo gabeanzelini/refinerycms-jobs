@@ -2,34 +2,13 @@
   <%= @job.job_title %>
 <% end %>
 
-<% content_for :body_content_left do %>
-  
-  <div>
-    <h1><%= @job.job_title %></h1>
-  </div>
-  
-  <div>
-    <h2>Description</h2>
-    <%= @job.description.html_safe %>
-  </div>
-  <% unless @job.employment_terms.blank?%>
-  <div>
-    <h2 style='display:inline'>Employment Terms:</h2>  <%= @job.employment_terms.html_safe %>
-  </div>
-  <%end%>  
-  <% unless @job.hours.blank?%>
-  <br>
-  <div>
-    <h2 style='display:inline'>Hours:</h2>
-    <%= @job.hours.html_safe %>
-  </div>
-  <%end%>  
+<div id="jobs">
 
-<% end %>
-
-<% content_for :body_content_right do %>
+<div id="body_content_left">
+  <h2>Job Application</h2>
+  <p class="pdf"><a href="/docs/ApplicationForEmployment.pdf">Download the Application</a></p>
+  <h2>Other Available Jobs</h2>
   <% if @jobs.length > 1 %>
-    <h2>Other Jobs</h2>
     <ul id="jobs">
       <% @jobs.each do |job| %>
         <% if @job != job %>
@@ -39,7 +18,31 @@
         <% end %>
       <% end %>
     </ul>
+  <% else %>
+    <p class="notice">There are currently no other jobs available at this time.</p>
   <% end %>
-<% end %>
+</div>
+
+<div id="body_content_right">
+  <h1 class="full"><%= @job.job_title %> <span>Job Opening</span> </h1>
+  <div class="job-d">
+    <h2>Description</h2>
+    <%= @job.description.html_safe %>
+  </div>
+  <div class="job-m">
+    <h2>Job Application</h2>
+    <p class="pdf"><a href="/docs/ApplicationForEmployment.pdf">Download the Application</a></p>
+    <% unless @job.employment_terms.blank?%>
+      <h2 style="display:inline">Job Type:</h2>  
+      <p><%= @job.employment_terms.html_safe %></p>
+    <%end%>
+    <% unless @job.hours.blank?%>
+      <h2 style="display:inline">Closing Date:</h2>
+      <p><%= @job.hours.html_safe %></p>
+    <%end%>
+  </div>
+</div>
+
+</div>
 
 <%= render :partial => "/shared/content_page" %>
