@@ -33,7 +33,7 @@
     <h2>Job Application</h2>
     <p class="pdf"><a href="/docs/ApplicationForEmployment.pdf">Download the Application</a></p>
     <% unless @job.employment_terms.blank?%>
-      <h2 style="display:inline">Job Type:</h2>  
+      <h2 style="display:inline">Status:</h2>  
       <p><%= @job.employment_terms.html_safe %></p>
     <%end%>
     <% unless @job.hours.blank?%>
