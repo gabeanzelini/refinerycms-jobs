@@ -1,7 +1,9 @@
-<% content_for :body_content_left do %>
-<h1>Current open positions</h1>
+<div id="jobs">
+<div id="body_content_left">
+
+<h2>Current open positions</h2>
   <% if @jobs.count == 0 %>
-    There are no open positions at the moment.
+    <p class="notice">There are currently no other jobs available at this time.</p>
   <% else %>
     <ul id="jobs">
       <% @jobs.each do |job| %>
@@ -11,6 +13,27 @@
       <% end %>
     </ul>
   <% end %>
-<% end %>
 
-<%= render :partial => "/shared/content_page" %>
+</div>
+
+<div id="body_content_right">
+
+<h1 class="full">Job Opportunities</h1>
+
+<p>Morton General Hospital, an equal-opportunity employer, offers competitive compensation and excellent benefits for our employees. Applications may be obtained at the Admitting Desk or downloaded here:</p>
+
+<p><a href="/docs/ApplicationForEmployment.pdf">Download the Morton General Application for Employment</a></p>
+
+<p>Completed applications can be faxed to 360-496-2316 or mailed to:</p>
+
+<p>Human Resources<br />
+Morton General Hospital<br />
+P.O. Box 1138<br />
+Morton, WA 98356</p>
+
+<p>For more information, call Shannon Kelly at 360-496-3531.</p>
+
+<p>Morton General Hospital is committed to providing a drug-free work environment. Pre-employment substance abuse screening is required as a condition of employment.</p>
+
+</div>
+</div>
