@@ -14,11 +14,11 @@
     <h2>Search Results for "<%= params[:search] %>"</h2>
   <% end %>
   <% if @jobs.any? %>
-    <%= will_paginate @news_items %>
+    <%= will_paginate @jobs %>
     <ul>
-      <%= render :partial => "news_item", :collection => @news_items %>
+      <%= render :partial => "job", :collection => @jobs %>
     </ul>
-    <%= will_paginate @news_items %>
+    <%= will_paginate @jobs %>
   <% else %>
     <p>
       <% unless searching? %>
