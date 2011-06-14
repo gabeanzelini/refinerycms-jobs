@@ -8,25 +8,30 @@
     </li>
   </ul>
 </div>
+
 <div id='records'>
   <% if searching? %>
     <h2>Search Results for "<%= params[:search] %>"</h2>
-    <% if @jobs.any? %>
-      <%= render :partial => "jobs", :collection => @jobs %>
-    <% else %>
-      <p>Sorry, no results found.</p>
-    <% end %>
+  <% end %>
+  <% if @jobs.any? %>
+    <%= will_paginate @news_items %>
+    <ul>
+      <%= render :partial => "news_item", :collection => @news_items %>
+    </ul>
+    <%= will_paginate @news_items %>
   <% else %>
-    <% if @jobs.any? %>
-      <%= will_paginate @jobs, :previous_label => '&laquo;', :next_label => '&raquo;' %>
-      <%= will_paginate @jobs, :previous_label => '&laquo;', :next_label => '&raquo;' %>
-    <% else %>
-      <p>
+    <p>
+      <% unless searching? %>
         <strong>
           There are no jobs yet.
           Click "Create New Job" to add your first jobs.
         </strong>
-      </p>
-    <% end %>
+      <% else %>
+        <%= t('shared.admin.search.no_results') %>
+      <% end %>
+    </p>
+  <% end %>
+  <% if searching? %>
+    <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
   <% end %>
 </div>
