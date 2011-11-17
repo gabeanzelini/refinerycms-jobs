@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors           = %w(Jim\ Croft Rafael\ Cardoso)
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '~> 0.9.8'
+  s.add_dependency    'refinerycms', '~>1.0.8'
   s.add_dependency    'paperclip'
 
   s.files             = [
