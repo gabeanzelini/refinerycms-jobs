@@ -8,6 +8,7 @@
            :title => 'Edit this job' %>
       <%= link_to refinery_icon_tag("delete.png"), admin_job_path(job),
           :class => "cancel confirm-delete",
+          :method => 'delete',
           :title => 'Remove this job forever' %>
     </span>
     <%=h job.job_title %> <span class="preview">&nbsp;</span>
